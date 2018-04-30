@@ -20,11 +20,13 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: depot
+  password: superstar1123
 
 development:
   <<: *default
   database: depot-test_development
-
+  
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -58,7 +60,7 @@ development:
 test:
   <<: *default
   database: depot-test_test
-
+  
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -83,3 +85,4 @@ production:
   database: depot-test_production
   username: depot-test
   password: <%= ENV['DEPOT-TEST_DATABASE_PASSWORD'] %>
+  
